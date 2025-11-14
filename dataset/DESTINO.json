@@ -1,0 +1,27 @@
+{
+	"name": "DESTINO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageGsDw",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"nome_do_arquivo": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "destinorm557609"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

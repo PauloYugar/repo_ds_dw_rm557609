@@ -19,7 +19,15 @@
 					"name": "Fonte2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DESTINO",
+						"type": "DatasetReference"
+					},
+					"name": "Destino"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join1"
@@ -51,7 +59,11 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> join1",
+				"join1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Destino"
 			]
 		}
 	}
