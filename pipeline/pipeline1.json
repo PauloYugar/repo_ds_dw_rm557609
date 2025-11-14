@@ -1,0 +1,55 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflowgsdwjoin",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"Fonte1": {
+								"nome_do_arquivo": "trabalho_futuro_caracteristicas.csv"
+							},
+							"Fonte2": {
+								"nome_do_arquivo": "pesquisa_trabalho_futuro.csv"
+							},
+							"Destino": {
+								"nome_do_arquivo": "destino"
+							}
+						},
+						"linkedServiceParameters": {
+							"Fonte1": {
+								"schemaLinkedService": {
+									"nome_do_arquivo": "trabalho_futuro_caracteristicas.csv"
+								}
+							},
+							"Fonte2": {
+								"schemaLinkedService": {
+									"nome_do_arquivo": "pesquisa_trabalho_futuro.csv"
+								}
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
