@@ -1,0 +1,36 @@
+{
+	"name": "ORIGEM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageGsDw",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"nome_do_arquivo": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().nome_do_arquivo",
+					"type": "Expression"
+				},
+				"container": "origemrm557609"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id_Pesquisa;Data_Pesquisa;Satisfacao_Atual;Equilibrio_Vida_Trabalho;Saude_Mental_Status",
+				"type": "String"
+			}
+		]
+	}
+}
